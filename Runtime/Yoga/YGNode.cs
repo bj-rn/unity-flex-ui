@@ -1,5 +1,4 @@
 using System;
-using UnityEngine;
 
 namespace Gilzoide.FlexUi.Yoga
 {
@@ -21,12 +20,6 @@ namespace Gilzoide.FlexUi.Yoga
                 Free();
                 _nodePtr = IntPtr.Zero;
             }
-        }
-
-        public void ApplyTo(RectTransform rectTransform)
-        {
-            rectTransform.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, LayoutGetTop(), LayoutGetHeight());
-            rectTransform.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, LayoutGetLeft(), LayoutGetWidth());
         }
 
         public bool Equals(YGNode other)
@@ -266,7 +259,7 @@ namespace Gilzoide.FlexUi.Yoga
             string error = Yoga.YGNodeInsertChild(_nodePtr, child._nodePtr, index);
             if (error != null)
             {
-                Debug.LogError(error);
+                System.Diagnostics.Trace.WriteLine(error);
                 return false;
             }
             else
@@ -288,7 +281,7 @@ namespace Gilzoide.FlexUi.Yoga
             string error = Yoga.YGNodeSetConfig(_nodePtr, config._configPtr);
             if (error != null)
             {
-                Debug.LogError(error);
+                System.Diagnostics.Trace.WriteLine(error);
             }
         }
 

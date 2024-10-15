@@ -5,11 +5,8 @@ namespace Gilzoide.FlexUi.Yoga
 {
     public class Yoga
     {
-#if UNITY_WEBGL && !UNITY_EDITOR
-        const string YogaDll = "__Internal";
-#else
+
         const string YogaDll = "flex-ui";
-#endif
 
         #region YGConfig
 
